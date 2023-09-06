@@ -15,8 +15,6 @@ else ifeq ($(TARGET_BOARD_PLATFORM),lahaina)
 PRODUCT_COPY_FILES += vendor/qcom/opensource/power/config/lahaina/powerhint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.xml
 else ifeq ($(TARGET_BOARD_PLATFORM),holi)
 PRODUCT_COPY_FILES += vendor/qcom/opensource/power/config/holi/powerhint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.xml
-else ifeq ($(TARGET_BOARD_PLATFORM),trinket)
-PRODUCT_COPY_FILES += vendor/qcom/opensource/power/config/trinket/powerhint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.xml
 else ifeq ($(TARGET_BOARD_PLATFORM),sdm660)
 ifeq ($(TARGET_KERNEL_VERSION),4.19)
 PRODUCT_COPY_FILES += vendor/qcom/opensource/power/config/sdm660/powerhint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.xml
@@ -40,5 +38,9 @@ PRODUCT_COPY_FILES += vendor/qcom/opensource/power/config/pineapple/powerhint.xm
 else ifeq ($(TARGET_BOARD_PLATFORM),crow)
 PRODUCT_COPY_FILES += vendor/qcom/opensource/power/config/crow/powerhint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.xml
 else ifeq ($(TARGET_BOARD_PLATFORM),trinket)
+ifeq ($(TARGET_KERNEL_VERSION),5.15)
+PRODUCT_COPY_FILES += vendor/qcom/opensource/power/config/trinket/powerhint-5.15.xml:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.xml
+else
 PRODUCT_COPY_FILES += vendor/qcom/opensource/power/config/trinket/powerhint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.xml
+endif
 endif
